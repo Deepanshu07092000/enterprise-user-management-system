@@ -1,0 +1,203 @@
+/* ==========================================================================
+   1. Global Styles & Gradient Background
+   ========================================================================== */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #0a0f24;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f172a 0%, #020617 40%, #083344 100%);
+    padding: 15px;
+}
+
+/* ==========================================================================
+   2. Login Card Styling (Box Shadow + Rounded Corners)
+   ========================================================================== */
+.login-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+                0 0 50px rgba(8, 51, 68, 0.3);
+}
+
+.brand-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(14, 116, 144, 0.2);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
+}
+
+/* ==========================================================================
+   3. Modern Form Controls, Dropdowns & Buttons
+   ========================================================================== */
+.form-control, .form-select {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #f8fafc !important;
+    border-radius: 8px;
+    padding: 10px 14px;
+    transition: all 0.3s ease;
+}
+
+.form-select {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e") !important;
+}
+
+.form-control::placeholder {
+    color: #64748b;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: rgba(15, 23, 42, 0.9) !important;
+    border-color: #22d3ee;
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.25);
+}
+
+.form-select option {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+.input-group-text {
+    background-color: rgba(15, 23, 42, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+}
+
+.form-check-input {
+    background-color: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+.form-check-input:checked {
+    background-color: #06b6d4;
+    border-color: #06b6d4;
+}
+
+.btn-info {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-info:hover {
+    background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+}
+
+.btn-info:active {
+    transform: scale(0.98);
+}
+
+/* Error Message Banner Styling */
+.error-banner {
+    background-color: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #fca5a5;
+    animation: errorShake 0.4s ease-in-out forwards;
+}
+
+/* ==========================================================================
+   4. High-End Reveal & Interaction Animations
+   ========================================================================== */
+
+/* Page Load Card Slide & Fade Animation */
+.animate-fade-in-up {
+    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+/* Base properties for elements utilizing entrance delays */
+.animate-delay-1, .animate-delay-2, .animate-delay-3, 
+.animate-delay-4, .animate-delay-5, .animate-delay-6 {
+    opacity: 0;
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger Micro-delays for structured presentation sequence */
+.animate-delay-1 { animation-delay: 0.15s; }
+.animate-delay-2 { animation-delay: 0.25s; }
+.animate-delay-3 { animation-delay: 0.35s; }
+.animate-delay-4 { animation-delay: 0.45s; }
+.animate-delay-5 { animation-delay: 0.55s; }
+.animate-delay-6 { animation-delay: 0.65s; }
+
+/* Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* UI UX Error notification animation shake */
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+/* ==========================================================================
+   5. CSS Media Queries (Responsive Adjustments)
+   ========================================================================== */
+
+   /* Mobile Responsiveness (Small screens and down) */
+@media (max-width: 576px) {
+    .login-card {
+        padding: 24px !important;
+        border-radius: 12px;
+    }
+    
+    .brand-icon-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Tablet Responsiveness */
+@media (min-width: 577px) and (max-width: 768px) {
+    .login-card {
+        max-width: 450px;
+        margin: auto;
+    }
+}
+
+/* Laptop/Desktop Fine-Tuning */
+@media (min-width: 992px) {
+    .login-card {
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .login-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.text-muted {
+--bs-text-opacity: 1;
+color: rgb(239 242 245 / 75%) !important;
+}

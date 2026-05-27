@@ -1,0 +1,186 @@
+/* ==========================================================================
+   1. Global Layout Styles & Shared Gradient Context
+   ========================================================================== */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #020617; /* Deep matte black base fallback */
+}
+
+/* Base background setup matching login profile design view rules */
+.dashboard-container {
+    min-height: calc(100vh - 72px);
+    background: linear-gradient(135deg, #0f172a 0%, #020617 40%, #083344 100%);
+}
+
+/* Text utility layer override helper for system accessibility */
+.text-muted {
+    --bs-text-opacity: 1;
+    color: rgb(235 238 241 / 65%) !important;
+}
+
+.text-cyan {
+    color: #22d3ee !important;
+}
+
+/* ==========================================================================
+   2. Navbar Configuration 
+   ========================================================================== */
+.dashboard-navbar {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1030;
+}
+
+.tracking-wider {
+    letter-spacing: 0.08em;
+}
+
+/* ==========================================================================
+   3. Glassmorphic Dashboard Cards & Badges
+   ========================================================================== */
+.dashboard-card {
+    background: rgba(30, 41, 59, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Executive Role Badge Design matching login themes */
+.role-badge {
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.25);
+}
+
+/* ==========================================================================
+   4. High-End Table System & Professional Hover Glowing Effect
+   ========================================================================== */
+.custom-dashboard-table {
+    border-collapse: separate;
+    border-spacing: 0 6px; 
+}
+
+.custom-dashboard-table thead th {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.custom-dashboard-table tbody tr {
+    transition: all 0.25s ease-in-out;
+    cursor: default;
+}
+
+/* Table Row Style Reset to enforce customized separation */
+.custom-dashboard-table tbody td {
+    background-color: rgba(15, 23, 42, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Fixing Border Radiuses on dynamic separate rows */
+.custom-dashboard-table tbody tr td:first-child {
+    border-left: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 8px 0 0 8px;
+}
+.custom-dashboard-table tbody tr td:last-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Premium Cyan Hover Glow Effect */
+.custom-dashboard-table tbody tr:hover td {
+    background-color: rgba(30, 41, 59, 0.95);
+    border-color: rgba(34, 211, 238, 0.35);
+    /* color: #ffffff; */
+}
+
+.custom-dashboard-table tbody tr:hover {
+    transform: translateY(-2px) scale(1.002);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(34, 211, 238, 0.1);
+}
+
+#noRecordsMessage {
+    animation: fadeIn 0.4s ease;
+}
+
+.dashboard-card {
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   5. Coordinated Entry Animation Framework
+   ========================================================================== */
+.animate-fade-in-down {
+    animation: fadeInDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-delay-1, .animate-delay-2 {
+    opacity: 0;
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-delay-1 { animation-delay: 0.15s; }
+.animate-delay-2 { animation-delay: 0.3s; }
+
+.animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ==========================================================================
+   6. Custom Breakpoint Responsive Media Queries
+   ========================================================================== */
+@media (max-width: 576px) {
+    .dashboard-card {
+        padding: 18px !important;
+    }
+    h1 {
+        font-size: 1.35rem;
+    }
+}
+
+/* Remove Bootstrap default table background */
+.custom-dashboard-table {
+    --bs-table-bg: transparent !important;
+}
+
+
+/* Remove white table cell backgrounds */
+.custom-dashboard-table td,
+.custom-dashboard-table th {
+
+    background-color: transparent !important;
+
+}
+
+/* Remove Bootstrap subtle dark background */
+.bg-dark-subtle {
+
+    background-color: transparent !important;
+
+}
